@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from create_bot import my_router, bot
 # from mysql_get import print_rate
 from keyboards import builder, builder_inline
-# from logger import logger
+from logger import logger
 
 
 @my_router.message(CommandStart())
@@ -15,6 +15,7 @@ async def command_start_handler(message: Message) -> None:
     # builder2.add(webappbutton)
     await message.answer(f"Hello, {message.from_user.full_name}!", reply_markup=builder2.as_markup())
     await message.delete()
+    logger.info("command start pressed")
 
 
 @my_router.message(Command('kb'))
@@ -58,7 +59,9 @@ async def message_handler_info(message: Message):
     await message.answer('Date: 13/12/2023')
     await message.answer('id: 745005351')
     await message.answer('Melbet ✅')
+    logger.info("command pic pressed")
     # await message.delete()
+
 
 import random
 import time
@@ -107,6 +110,7 @@ async def message_get_rate(message: Message):
     if i == len(my_dict):
         i = 0
     mess2 = await message.answer('Click get signal to get coefficient for the next round ->')
+    logger.info("get signal pressed")
 
 
 @my_router.message(F.text.lower().contains('спасибо'))
