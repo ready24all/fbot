@@ -52,10 +52,20 @@ async def get_all_messages_id(chat_id: int):
     
 
 
+@my_router.message(F.text == 'info')
+async def message_handler_info(message: Message):
+    await message.answer('Location: 🇪🇬 Egypt, Cairo')
+    await message.answer('Date: 13/12/2023')
+    await message.answer('id: 745005351')
+    await message.answer('Melbet ✅')
+    # await message.delete()
+
 import random
 import time
 
-my_dict = ['New game: 1.86x','New game: 15.31x','New game: 12.12x','New game: 9.92x','New game: 3.63x','New game: 16.03x','New game: 34.57x','New game: 11.66x','New game: 22.01x']
+my_dict1 = ['New game: 1.86x','New game: 15.31x','New game: 12.12x','New game: 9.92x','New game: 3.63x','New game: 16.03x','New game: 34.57x','New game: 11.66x','New game: 22.01x']
+
+my_dict = ['🔸 4.45x 🔸','🔺 19.83 🔺','🔹 1.75 🔹']
 
 
 random_value = random.choice(my_dict)
@@ -69,14 +79,15 @@ print(random_value)
 #     time.sleep(5)
 #     await message.answer('Click get signal to get coefficient for the next round:')
 #     await message.delete()
-
+i = 0
 
 @my_router.message(F.text == 'GET SIGNAL')
 async def message_get_rate(message: Message):
+    global i
     # types.chat.Chat.delete_message(*, dddd)
     # await mess1.delete()
     # await mess2.delete()
-    mess1 = await message.answer(random.choice(my_dict))
+    # mess222 = await message.answer(random.choice(my_dict))
     waiting_message = await message.answer('WAITING ⏰')
     await waiting_message.edit_text('WAITING 🟢')
     # time.sleep(1)
@@ -85,12 +96,16 @@ async def message_get_rate(message: Message):
     await waiting_message.edit_text('WAITING 🟢🟢🟢')
     await waiting_message.edit_text('WAITING 🟢🟢🟢🟢')
     await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢')
-    await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢')
-    await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢🟢')
-    await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢🟢🟢')
-    await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢🟢🟢🟢')
+    # await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢')
+    # await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢🟢')
+    # await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢🟢🟢')
+    # await waiting_message.edit_text('WAITING 🟢🟢🟢🟢🟢🟢🟢🟢🟢')
     time.sleep(1)
     await waiting_message.delete()
+    mess1 = await message.answer(my_dict[i])
+    i += 1
+    if i == len(my_dict):
+        i = 0
     mess2 = await message.answer('Click get signal to get coefficient for the next round ->')
 
 
