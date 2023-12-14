@@ -66,9 +66,9 @@ async def message_handler_info(message: Message):
 import random
 import time
 
-my_dict1 = ['New game: 1.86x','New game: 15.31x','New game: 12.12x','New game: 9.92x','New game: 3.63x','New game: 16.03x','New game: 34.57x','New game: 11.66x','New game: 22.01x']
+# my_dict1 = ['New game: 1.86x','New game: 15.31x','New game: 12.12x','New game: 9.92x','New game: 3.63x','New game: 16.03x','New game: 34.57x','New game: 11.66x','New game: 22.01x']
 
-my_dict = ['🔸 4.45x 🔸','🔺 19.83 🔺','🔹 1.75 🔹']
+my_dict = ['🔸 1.67х 🔸','🔺 1.04х 🔺','🔹 1.26х 🔹']
 
 
 random_value = random.choice(my_dict)
